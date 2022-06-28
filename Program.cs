@@ -49,7 +49,7 @@ namespace Greed
             player.SetFontSize(FONT_SIZE);
             player.SetColor(WHITE);
             player.SetPosition(new Point(MAX_X / 2, MAX_Y - 1));
-            cast.AddActor("robot", robot);
+            cast.AddActor("players", player);
 
         
             // create the minerals
@@ -65,16 +65,22 @@ namespace Greed
                 Point position = new Point(x, y);
                 position = position.Scale(CELL_SIZE);
 
+                int vx = 0;
+                int vy = 1;
+                Point velocity = new Point(vx, vy);
+                velocity = velocity.Scale(CELL_SIZE);
+
                 int r = random.Next(0, 256);
                 int g = random.Next(0, 256);
                 int b = random.Next(0, 256);
                 Color color = new Color(r, g, b);
 
-                Mineral mineral = new Mineral();
+                Mineral mineral = new Mineral(points);
                 mineral.SetText(text);
                 mineral.SetFontSize(FONT_SIZE);
                 mineral.SetColor(color);
                 mineral.SetPosition(position);
+                mineral.SetVelocity(velocity);
                 cast.AddActor("minerals", mineral);
             }
 

@@ -50,7 +50,7 @@ namespace Greed.Game.Directing
         private void GetInputs(Cast cast)
         {
             // something else
-            Actor player = cast.GetFirstActor("player");
+            Actor player = cast.GetFirstActor("players");
             Point velocity = keyboardService.GetDirection();
             player.SetVelocity(velocity);
         }

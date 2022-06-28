@@ -11,28 +11,20 @@ namespace Greed.Game.Casting
         private int points = 0;
 
         /// <summary>
-        /// Constructs a new instance of an Mineral.
+        /// Constructs a new instance of a Mineral.
         /// </summary>
-        public Mineral()
+        public Mineral(int points)
         {
+            this.points = points;
         }
 
         /// <summary>
         /// Gets the mineral's points.
         /// </summary>
-        /// <returns>The message.</returns>
-        public string GetMessage()
+        /// <returns>The points.</returns>
+        public int GetPoints()
         {
-            return message;
-        }
-
-        /// <summary>
-        /// Sets the artifact's message to the given value.
-        /// </summary>
-        /// <param name="message">The given message.</param>
-        public void SetMessage(string message)
-        {
-            this.message = message;
+            return points;
         }
     }
 }

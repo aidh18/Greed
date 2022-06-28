@@ -44,39 +44,42 @@ namespace Greed.Game.Directing
         }
 
         /// <summary>
-        /// Gets directional input from the keyboard and applies it to the robot.
+        /// Gets directional input from the keyboard and applies it to the player.
         /// </summary>
         /// <param name="cast">The given cast.</param>
         private void GetInputs(Cast cast)
         {
-            Actor robot = cast.GetFirstActor("robot");
+            // something else
+            Actor player = cast.GetFirstActor("player");
             Point velocity = keyboardService.GetDirection();
-            robot.SetVelocity(velocity);     
+            player.SetVelocity(velocity);
         }
 
         /// <summary>
-        /// Updates the robot's position and resolves any collisions with artifacts.
+        /// Updates the player's position and resolves any collisions with minerals.
         /// </summary>
         /// <param name="cast">The given cast.</param>
         private void DoUpdates(Cast cast)
         {
-            Actor banner = cast.GetFirstActor("banner");
-            Actor robot = cast.GetFirstActor("robot");
-            List<Actor> artifacts = cast.GetActors("artifacts");
+            Actor score = cast.GetFirstActor("score");
+            Actor player = cast.GetFirstActor("player");
+            List<Actor> minerals = cast.GetActors("minerals");
 
-            banner.SetText("");
             int maxX = videoService.GetWidth();
             int maxY = videoService.GetHeight();
-            robot.MoveNext(maxX, maxY);
+            player.MoveNext(maxX, maxY);
 
-            foreach (Actor actor in artifacts)
+            foreach (Actor mineral in minerals)
             {
-                if (robot.GetPosition().Equals(actor.GetPosition()))
-                {
-                    Artifact artifact = (Artifact) actor;
-                    string message = artifact.GetMessage();
-                    banner.SetText(message);
-                }
+                mineral.MoveNext(maxX, maxY);
+                // fix something lol
+                // if (player.GetPosition().Equals(mineral.GetPosition()))
+                // {
+                //     Mineral m = (Mineral) mineral;
+                //     int points = m.GetPoints();
+                //     score.SetText(points.ToString());
+                //     cast.RemoveActor("minerals", mineral);
+                // }
             } 
         }
 

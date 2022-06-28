@@ -23,7 +23,7 @@ namespace Greed
         private static int ROWS = 40;
         private static string CAPTION = "Greed";
         private static Color WHITE = new Color(255, 255, 255);
-        private static int DEFAULT_ARTIFACTS = 40;
+        private static int DEFAULT_MINERALS = 40;
 
 
         /// <summary>
@@ -35,34 +35,33 @@ namespace Greed
             // create the cast
             Cast cast = new Cast();
 
-            // create the banner
-            Actor banner = new Actor();
-            banner.SetText("");
-            banner.SetFontSize(FONT_SIZE);
-            banner.SetColor(WHITE);
-            banner.SetPosition(new Point(CELL_SIZE, 0));
-            cast.AddActor("banner", banner);
+            // create the score
+            Actor score = new Actor();
+            score.SetText("");
+            score.SetFontSize(FONT_SIZE);
+            score.SetColor(WHITE);
+            score.SetPosition(new Point(CELL_SIZE, 0));
+            cast.AddActor("score", score);
 
-            // create the robot
-            Actor robot = new Actor();
-            robot.SetText("#");
-            robot.SetFontSize(FONT_SIZE);
-            robot.SetColor(WHITE);
-            robot.SetPosition(new Point(MAX_X / 2, MAX_Y / 2));
+            // create the plaer
+            Actor player = new Actor();
+            player.SetText("#");
+            player.SetFontSize(FONT_SIZE);
+            player.SetColor(WHITE);
+            player.SetPosition(new Point(MAX_X / 2, MAX_Y - 1));
             cast.AddActor("robot", robot);
 
-            // load the messages
-            List<string> messages = File.ReadAllLines(DATA_PATH).ToList<string>();
-
-            // create the artifacts
+        
+            // create the minerals
             Random random = new Random();
-            for (int i = 0; i < DEFAULT_ARTIFACTS; i++)
+            for (int i = 0; i < DEFAULT_MINERALS; i++)
             {
-                string text = ((char)random.Next(33, 126)).ToString();
-                string message = messages[i];
+
+                string text = "0";
+                int points = - 25;
 
                 int x = random.Next(1, COLS);
-                int y = random.Next(1, ROWS);
+                int y = random.Next(1, ROWS); // TODO: start at top of the screen
                 Point position = new Point(x, y);
                 position = position.Scale(CELL_SIZE);
 
@@ -71,13 +70,12 @@ namespace Greed
                 int b = random.Next(0, 256);
                 Color color = new Color(r, g, b);
 
-                Artifact artifact = new Artifact();
-                artifact.SetText(text);
-                artifact.SetFontSize(FONT_SIZE);
-                artifact.SetColor(color);
-                artifact.SetPosition(position);
-                artifact.SetMessage(message);
-                cast.AddActor("artifacts", artifact);
+                Mineral mineral = new Mineral();
+                mineral.SetText(text);
+                mineral.SetFontSize(FONT_SIZE);
+                mineral.SetColor(color);
+                mineral.SetPosition(position);
+                cast.AddActor("minerals", mineral);
             }
 
             // start the game

@@ -1,24 +1,24 @@
 namespace Greed.Game.Casting
 {
     /// <summary>
-    /// <para>An item of cultural or historical interest.</para>
+    /// <para>A solid inorganic substace of natural occurrence.</para>
     /// <para>
-    /// The responsibility of an Artifact is to provide a message about itself.
+    /// The responsibility of a Mineral is to provide the points associated with it.
     /// </para>
     /// </summary>
-    public class Artifact : Actor
+    public class Mineral : Actor
     {
-        private string message = "";
+        private int points = 0;
 
         /// <summary>
-        /// Constructs a new instance of an Artifact.
+        /// Constructs a new instance of an Mineral.
         /// </summary>
-        public Artifact()
+        public Mineral()
         {
         }
 
         /// <summary>
-        /// Gets the artifact's message.
+        /// Gets the mineral's points.
         /// </summary>
         /// <returns>The message.</returns>
         public string GetMessage()

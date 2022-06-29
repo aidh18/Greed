@@ -48,8 +48,8 @@ namespace Greed
             player.SetText("#");
             player.SetFontSize(FONT_SIZE);
             player.SetColor(WHITE);
-            player.SetPosition(new Point(MAX_X / 2, MAX_Y - 1));
-            cast.AddActor("players", player);
+            player.SetPosition(new Point(MAX_X / 2, MAX_Y - CELL_SIZE));
+            cast.AddActor("player", player);
 
         
             // create the minerals

@@ -50,7 +50,7 @@ namespace Greed.Game.Directing
         private void GetInputs(Cast cast)
         {
             // something else
-            Actor player = cast.GetFirstActor("players");
+            Actor player = cast.GetFirstActor("player");
             Point velocity = keyboardService.GetDirection();
             player.SetVelocity(velocity);
         }
@@ -62,7 +62,7 @@ namespace Greed.Game.Directing
         private void DoUpdates(Cast cast)
         {
             Actor score = cast.GetFirstActor("score");
-            Actor player = cast.GetFirstActor("players");
+            Actor player = cast.GetFirstActor("player");
             List<Actor> minerals = cast.GetActors("minerals");
 
             int maxX = videoService.GetWidth();

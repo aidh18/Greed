@@ -27,6 +27,8 @@ namespace Greed.Game.Directing
             this.videoService = videoService;
         }
 
+        private int points = 0;
+
         /// <summary>
         /// Starts the game by running the main game loop for the given cast.
         /// </summary>
@@ -72,14 +74,14 @@ namespace Greed.Game.Directing
             foreach (Actor mineral in minerals)
             {
                 mineral.MoveNext(maxX, maxY);
-                // fix something lol
-                // if (player.GetPosition().Equals(mineral.GetPosition()))
-                // {
-                //     Mineral m = (Mineral) mineral;
-                //     int points = m.GetPoints();
-                //     score.SetText(points.ToString());
-                //     cast.RemoveActor("minerals", mineral);
-                // }
+                
+                if (player.GetPosition().Equals(mineral.GetPosition()))
+                {
+                    Mineral m = (Mineral) mineral;
+                    points += m.GetPoints();
+                    score.SetText(points.ToString());
+                    cast.RemoveActor("minerals", mineral);
+                }
             } 
         }
 

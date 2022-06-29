@@ -8,7 +8,7 @@ namespace Greed.Game.Casting
     /// </summary>
     public class Mineral : Actor
     {
-        private int points = 0;
+        public int points = 0;
 
         /// <summary>
         /// Constructs a new instance of a Mineral.

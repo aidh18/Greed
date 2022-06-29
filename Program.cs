@@ -17,8 +17,8 @@ namespace Greed
         private static int FRAME_RATE = 12;
         private static int MAX_X = 900;
         private static int MAX_Y = 600;
-        private static int CELL_SIZE = 15;
-        private static int FONT_SIZE = 15;
+        private static int CELL_SIZE = 30;
+        private static int FONT_SIZE = 30;
         private static int COLS = 60;
         private static int ROWS = 40;
         private static string CAPTION = "Greed";
@@ -45,10 +45,10 @@ namespace Greed
 
             // create the player
             Actor player = new Actor();
-            player.SetText("#");
+            player.SetText("A");
             player.SetFontSize(FONT_SIZE);
             player.SetColor(WHITE);
-            player.SetPosition(new Point(MAX_X / 2, MAX_Y - CELL_SIZE * 3));
+            player.SetPosition(new Point(MAX_X / 2, MAX_Y - CELL_SIZE * 5));
             cast.AddActor("player", player);
 
         
@@ -56,9 +56,22 @@ namespace Greed
             Random random = new Random();
             for (int i = 0; i < DEFAULT_MINERALS; i++)
             {
+                string text;
+                int point = 0;
+                int type = random.Next(0, 2);
 
-                string text = "0";
-                int points = - 25;
+                if (type == 0)
+                {
+                    text = "*";
+                    point = 1;
+                }
+                else
+                {
+                    text = "o";
+                    point = -1;
+                }
+                
+                
 
                 int x = random.Next(1, COLS);
                 int y = random.Next(1, ROWS); // TODO: start at top of the screen
@@ -75,7 +88,7 @@ namespace Greed
                 int b = random.Next(0, 256);
                 Color color = new Color(r, g, b);
 
-                Mineral mineral = new Mineral(points);
+                Mineral mineral = new Mineral(point);
                 mineral.SetText(text);
                 mineral.SetFontSize(FONT_SIZE);
                 mineral.SetColor(color);

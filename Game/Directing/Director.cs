@@ -27,7 +27,7 @@ namespace Greed.Game.Directing
             this.videoService = videoService;
         }
 
-        private int points = 0;
+        private int points = 100;
 
         /// <summary>
         /// Starts the game by running the main game loop for the given cast.

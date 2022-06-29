@@ -58,17 +58,17 @@ namespace Greed
             {
                 string text;
                 int point = 0;
-                int type = random.Next(0, 2);
+                int type = random.Next(0, 3);
 
-                if (type == 0)
+                if (type == 0 | type == 1)
                 {
                     text = "*";
-                    point = 1;
+                    point = 100;
                 }
                 else
                 {
                     text = "o";
-                    point = -1;
+                    point = -50;
                 }
                 
                 

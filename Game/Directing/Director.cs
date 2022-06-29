@@ -62,7 +62,7 @@ namespace Greed.Game.Directing
         private void DoUpdates(Cast cast)
         {
             Actor score = cast.GetFirstActor("score");
-            Actor player = cast.GetFirstActor("player");
+            Actor player = cast.GetFirstActor("players");
             List<Actor> minerals = cast.GetActors("minerals");
 
             int maxX = videoService.GetWidth();

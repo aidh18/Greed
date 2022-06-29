@@ -48,7 +48,7 @@ namespace Greed
             player.SetText("#");
             player.SetFontSize(FONT_SIZE);
             player.SetColor(WHITE);
-            player.SetPosition(new Point(MAX_X / 2, MAX_Y - CELL_SIZE));
+            player.SetPosition(new Point(MAX_X / 2, MAX_Y - CELL_SIZE * 3));
             cast.AddActor("player", player);
 
         

@@ -43,7 +43,7 @@ namespace Greed
             score.SetPosition(new Point(CELL_SIZE, 0));
             cast.AddActor("score", score);
 
-            // create the plaer
+            // create the player
             Actor player = new Actor();
             player.SetText("#");
             player.SetFontSize(FONT_SIZE);

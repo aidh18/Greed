@@ -60,7 +60,7 @@ namespace Greed
                 int point = 0;
                 int type = random.Next(0, 3);
 
-                if (type == 0 | type == 1)
+                if (type == 0)
                 {
                     text = "*";
                     point = 100;

@@ -14,7 +14,7 @@ namespace Greed
     /// </summary>
     class Program
     {
-        public static int FRAME_RATE = 12;
+        public static int FRAME_RATE = 10;
         private static int MAX_X = 900;
         private static int MAX_Y = 600;
         public static int CELL_SIZE = 30;

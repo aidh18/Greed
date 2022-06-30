@@ -16,6 +16,7 @@ namespace Greed.Game.Directing
     {
         private KeyboardService keyboardService = null;
         private VideoService videoService = null;
+        private int updatedFrameRate = 10;
 
         /// <summary>
         /// Constructs a new instance of Director using the given KeyboardService and VideoService.
@@ -82,7 +83,8 @@ namespace Greed.Game.Directing
                     Mineral m = (Mineral) mineral;
                     points += m.GetPoints();
                     score.SetText(points.ToString());
-                    Program.FRAME_RATE = ((points / 100) + 10);
+                    
+                    videoService.UpdateFrameRate(updatedFrameRate);
                     
                     int x = random.Next(0,60);
                     int y = 0;

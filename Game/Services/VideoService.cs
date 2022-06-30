@@ -139,6 +139,16 @@ namespace Greed.Game.Services
         }
 
         /// <summary>
+        /// Updates the frame rate.
+        /// </summary>
+        public void UpdateFrameRate(int updatedFrameRate)
+        {
+            Raylib.SetTargetFPS(updatedFrameRate);
+        }
+
+
+
+        /// <summary>
         /// Draws a grid on the screen.
         /// </summary>
         private void DrawGrid()

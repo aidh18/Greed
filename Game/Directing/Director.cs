@@ -82,6 +82,7 @@ namespace Greed.Game.Directing
                     Mineral m = (Mineral) mineral;
                     points += m.GetPoints();
                     score.SetText(points.ToString());
+                    Program.FRAME_RATE = ((points / 100) + 10);
                     
                     int x = random.Next(0,60);
                     int y = 0;

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Greed.Game.Casting;
 using Greed.Game.Services;
@@ -71,6 +72,7 @@ namespace Greed.Game.Directing
             int maxY = videoService.GetHeight();
             player.MoveNext(maxX, maxY);
 
+            Random random = new Random();
             foreach (Actor mineral in minerals)
             {
                 mineral.MoveNext(maxX, maxY);
@@ -80,7 +82,13 @@ namespace Greed.Game.Directing
                     Mineral m = (Mineral) mineral;
                     points += m.GetPoints();
                     score.SetText(points.ToString());
-                    cast.RemoveActor("minerals", mineral);
+                    
+                    int x = random.Next(0,60);
+                    int y = 0;
+                    Point position = new Point(x, y);
+                    position = position.Scale(Program.CELL_SIZE);
+                    mineral.SetPosition(position);
+
                 }
             } 
         }

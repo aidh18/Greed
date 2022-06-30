@@ -14,10 +14,10 @@ namespace Greed
     /// </summary>
     class Program
     {
-        private static int FRAME_RATE = 12;
+        public static int FRAME_RATE = 12;
         private static int MAX_X = 900;
         private static int MAX_Y = 600;
-        private static int CELL_SIZE = 30;
+        public static int CELL_SIZE = 30;
         private static int FONT_SIZE = 30;
         private static int COLS = 60;
         private static int ROWS = 40;
@@ -35,6 +35,7 @@ namespace Greed
             // create the cast
             Cast cast = new Cast();
 
+
             // create the score
             Actor score = new Actor();
             score.SetText("");
@@ -42,6 +43,11 @@ namespace Greed
             score.SetColor(WHITE);
             score.SetPosition(new Point(CELL_SIZE, 0));
             cast.AddActor("score", score);
+
+            
+            // create the framerate
+
+
 
             // create the player
             Actor player = new Actor();
